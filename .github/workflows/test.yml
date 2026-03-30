@@ -1,0 +1,35 @@
+name: Run tests
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'schemas/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'schemas/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install AJV CLI
+      run: npm install
+
+    - name: Validate JSON Schemas
+      run: |
+        npm validate
+
+    - name: Lint
+      run: |
+        npm lint

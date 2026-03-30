@@ -1,0 +1,24 @@
+{
+  "name": "stub-extractors",
+  "version": "1.0.0",
+  "description": "Simple metadata extractors and schemas",
+  "homepage": "https://github.com/SwissOpenEM/stub-extractors#readme",
+  "bugs": {
+    "url": "https://github.com/SwissOpenEM/stub-extractors/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwissOpenEM/stub-extractors.git"
+  },
+  "license": "Unlicense",
+  "author": "Spencer Bliven",
+  "scripts": {
+    "test": "npm run lint && npm run validate",
+    "validate": "for schema in schemas/*.schema.json; do ajv compile --spec=draft2019 --strict -s $schema || exit $?; done",
+    "lint": "jsonlint -q schemas/*.schema.json"
+  },
+  "devDependencies": {
+    "ajv-cli": "^5.0.0",
+    "jsonlint": "^1.6.3"
+  }
+}
