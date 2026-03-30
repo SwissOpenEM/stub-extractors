@@ -1,0 +1,48 @@
+#!/bin/bash
+# A no-op extractor. Ignores input and ouputs a static JSON object.
+set -euo pipefail
+
+usage() {
+    echo "Usage: $0 [options]"
+    echo "Options:"
+    echo "  -o, --output <file>   Output file (default: stdout)"
+    echo "  -j, --json <string>   JSON output (default: {})"
+}
+
+OUTFILE="-"
+JSON_OUTPUT='{}'
+
+
+while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -o|--output)
+            OUTFILE="$2"
+            shift 2
+            ;;
+        -i|--input)
+            # Ignore input file
+            shift 2
+            ;;
+        -j|--json)
+            JSON_OUTPUT="$2"
+            shift 2
+            ;;
+        *)
+            echo "Unknown parameter passed: $1" >&2
+            exit 1
+            ;;
+    esac
+done
+
+
+# Output an empty JSON object
+if [[ "$OUTFILE" == "-" ]]; then
+    echo "$JSON_OUTPUT"
+else
+    echo "Progress: 100.00%"
+    echo "$JSON_OUTPUT" > "$OUTFILE"
+fi

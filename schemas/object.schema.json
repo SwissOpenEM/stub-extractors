@@ -1,0 +1,7 @@
+{
+    "$id": "https://raw.githubusercontent.com/osc-em/OSCEM_Schemas/refs/heads/main/schemas/object",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "description": "Permissive JSON schema that allows any object",
+    "additionalProperties": true,
+    "type": "object"
+}
