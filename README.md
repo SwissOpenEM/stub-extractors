@@ -31,3 +31,4 @@ extractors should require significant time to run.)
 ## Schemas
 
 - `object.schema.json`: Matches any JSON object
+- `keyval.schema.json`: Enforces a flat object, with only simple values.

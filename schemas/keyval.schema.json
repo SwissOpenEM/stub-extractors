@@ -1,0 +1,17 @@
+{
+    "$id": "https://raw.githubusercontent.com/swissopenem/stub-extractors/refs/heads/main/schemas/keyval.schema.json",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "description": "JSON schema to enforce flat key-value pairs with simple types",
+    "type": "object",
+    "propertyNames": {
+        "type": "string"
+    },
+    "additionalProperties": {
+        "oneOf": [
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean"},
+            { "type": "null" }
+        ]
+    }
+}
