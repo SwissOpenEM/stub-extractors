@@ -3,12 +3,8 @@ name: Run tests
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'schemas/**'
   pull_request:
     branches: [ main ]
-    paths:
-      - 'schemas/**'
 
 jobs:
   test:
@@ -28,8 +24,8 @@ jobs:
 
     - name: Validate JSON Schemas
       run: |
-        npm validate
+        npm run validate
 
     - name: Lint
       run: |
-        npm lint
+        npm run lint
